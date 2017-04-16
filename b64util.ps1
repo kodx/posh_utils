@@ -71,9 +71,10 @@ function GenBasicScript {
     )
     $Output = @"
 `$EncodedString = @'
-$EncodedString
+$b64Str
 '@
-`$DecodedBytes = [System.Convert]::FromBase64String(`$EncodedString)
+`$DecodedBytes = [Convert]::FromBase64String(`$EncodedString)
+# `$DecodedBytes is a byte array
 "@
     return $Output
 }
